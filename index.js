@@ -1,6 +1,5 @@
 const express=require("express");
 const customer=require('./mongoose');
-const path=require('path');
 
 const app=express();
 
