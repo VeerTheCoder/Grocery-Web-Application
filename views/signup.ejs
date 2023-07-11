@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container{
+            background: rgba(0, 0, 0, 0.7) url('https://img.favpng.com/13/9/18/vegetarian-cuisine-leaf-vegetable-fruit-stock-png-favpng-75vGuibeZJtsw6iCAQFfFLrYt.jpg');
+            background-repeat: no-repeat;
+            /* background: transparent; */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4070f4;
+            column-gap: 30px;
+            filter: brightness(90%);
+        }
+
+        .form{
+            position: absolute;
+            max-width: 430px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 6px;
+            /* background: #fff; */
+            /* background-color: transparent; */
+            backdrop-filter: blur(50px);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        /* .form.signup{
+            opacity: 0;
+            pointer-events: none;
+        } */
+
+        .forms.show-signup .form.signup{
+            opacity: 1;
+            pointer-events: auto;
+        } 
+
+        .forms.show-signup .form.login{
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        header{
+            font-size: 28px;
+            font-weight: 600;
+            color: #232836;
+            text-align: center;
+        }
+
+        form{
+            margin-top: 30px;
+        }
+
+        .form .field{
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        .field input,
+        .field button{
+            height: 100%;
+            width: 100%;
+            border: none;
+            font-size: 16px;
+            font-weight: 400;
+            border-radius: 6px;
+        }
+
+        .field input{
+            outline: none;
+            padding: 0 15px;
+            border: 1px solid #CACACA;
+        }
+
+        .field input:focus{
+            border-bottom-width: 2px;
+        }
+
+        .eye-icon{
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #8b8b8b;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .button-field input{
+            color: #fff;
+            font-weight: 500;
+            background-color: #0171d3;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button-field input:hover{
+            color: #0171d3;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        .form-link{
+            text-align: center;
+            margin-top: 10px;
+        }
+        .form-link span,
+        .form-link a{
+            font-size: 14px;
+            font-weight: 400;
+            color: #232836;
+        }
+
+        .form a{
+            color: #0171d3;
+            text-decoration: none;
+        }
+
+        .form-content a:hover{
+            text-decoration: underline;
+        }
+
+        .line{
+            height: 1px;
+            width: 100%;
+            position: relative;
+            margin: 36px 0;
+            background-color: #d4d4d4;
+        }
+
+        .line::before{
+            content: 'Or';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            color: #8b8b8b;
+            padding: 0 15px;
+        }
+
+        .media-options a{
+            display: flex;
+            background-color: #4267b2;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a.facebook{
+            background-color: #4267b2 ;
+            color: #fff;
+        }
+
+        a.facebook .facebook-icon{
+            height: 28px;
+            width: 28px;
+            color: #0171d3;
+            font-size: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .facebook-icon,
+        .google-img{
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+        }
+
+        a.google-img{
+            height: 20px;
+            width: 20px;
+            
+        }
+
+        a.google{
+            background-color: #fff;
+            border: 1px solid #cacaca;
+            font-weight: 500;
+        }
+
+        a.google span{
+            opacity: 0.6;
+            /* color: #232836; */
+        }
+
+        @media screen and (max-width: 400px){
+            .form{
+                padding: 15px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <section class="container forms">
+            <div class="form signup">                
+                <div class="form-content">
+                    <header>Signup</header>
+    
+                    <form action="\register" method="post">
+                        <div class="field input-field">
+                            <input type="name" placeholder="Name" class="input" name="name" required>
+                        </div>
+                        <div class="field input-field">
+                            <input type="email" placeholder="Email" class="input" name="email" required>
+                        </div>
+                        <div class="field input-field">
+                            <input type="phone no" placeholder="Phone no" class="phone_no" name="phone_no" required>
+                        </div>
+                        <div class="field input-field">
+                            <input type="text" placeholder="City" name="city" required>
+                        </div><br/>
+                    <label for="gender1">
+                        <input type="radio" name="gender" id="gender1" value="Male" required>Male
+                    </label>
+            
+                    <label for="gender2">
+                        <input type="radio" name="gender" id="gender2" value="Female" required>Female
+                    </label><br>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" class="password" name="password" required>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Confirm password" class="password" name="cpassword" required>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+
+
+                    <div class="field button-field">
+                        <input type="submit" value="Register" />
+                    </div>
+
+                    <div class="form-link">
+                        <span>Already have an account? <a href="#" class="link login-link">Login </a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Javascript -->
+
+    <script>
+        const forms = document.querySelector(".forms"),
+      pwShowHide = document.querySelectorAll(".eye-icon"),
+      links = document.querySelectorAll(".link");
+
+pwShowHide.forEach(eyeIcon => {
+    eyeIcon.addEventListener("click", () => {
+        let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+        
+        pwFields.forEach(password => {
+            if(password.type === "password"){
+                password.type = "text";
+                eyeIcon.classList.replace("bx-hide", "bx-show");
+                return;
+            }
+            password.type = "password";
+                eyeIcon.classList.replace("bx-show", "bx-hide");
+        })
+    })
+})
+    </script>
+
+</body>
+
+</html>
+</body>
+</html>
